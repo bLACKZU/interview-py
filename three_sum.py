@@ -1,21 +1,18 @@
-def three_sum(arr, target):
+array = [40, 20, 10, 3, 6, 7]
+target = 57
 
-    sorted_arr = sorted(arr)
-    for i in range(len(sorted_arr) - 2):
-        l = i + 1
-        r = len(sorted_arr) - 1
+newArray = sorted(array)
 
-        requiredSum = target - arr[i]
-        while l < r:
-            if arr[l] + arr[r] == requiredSum:
-                return True
-            elif arr[l] + arr[r] < requiredSum:
-                l += 1
-            else:
-                r -= 1
 
-    return False
-
-array = [1, 4, 45, 6, 10, 8]
-target = 12
-print(three_sum(array, target))
+for i in range(0, len(newArray)- 2):
+    j = i + 1
+    k = len(newArray) - 1
+    complement = target - newArray[i] 
+    while j < k:
+        if newArray[j] + newArray[k] > complement:
+            k -= 1
+        elif newArray[j] + newArray[k] < complement:
+            j += 1
+        elif newArray[j] + newArray[k] == complement:
+            print("True:", newArray[i], newArray[j], newArray[k])
+            exit()
